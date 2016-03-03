@@ -1,0 +1,6 @@
+[package]
+name = "rustylist"
+version = "0.1.0"
+authors = ["Alejandro Wainzinger <aikawarazuni@gmail.com>"]
+
+[dependencies]
