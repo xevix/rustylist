@@ -1,14 +1,18 @@
 extern crate rustylist;
 extern crate iron;
 extern crate router;
+extern crate dotenv;
 
 use self::rustylist::services::todos_service;
 
+use dotenv::dotenv;
 use iron::{Iron, Request, Response, IronResult};
 use iron::status;
 use router::{Router};
 
 fn main() {
+    dotenv().ok();
+
     let mut router = Router::new();
     router.get("/", handler);
 

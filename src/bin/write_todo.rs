@@ -1,11 +1,16 @@
+extern crate dotenv;
 extern crate rustylist;
 extern crate diesel;
+
+use dotenv::dotenv;
 
 use self::rustylist::*;
 use std::io::{stdin, Read};
 
 fn main() {
-    let connection = establish_connection();
+    dotenv().ok();
+
+    let connection = persistence::connection::establish_connection();
 
     println!("What would you like your title to be?");
     let mut title = String::new();
