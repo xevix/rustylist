@@ -1,5 +1,8 @@
+extern crate rustylist;
 extern crate iron;
 extern crate router;
+
+use self::rustylist::services::todos_service;
 
 use iron::{Iron, Request, Response, IronResult};
 use iron::status;
@@ -12,6 +15,7 @@ fn main() {
     Iron::new(router).http("localhost:3000").unwrap();
 
     fn handler(_: &mut Request) -> IronResult<Response> {
-        Ok(Response::with((status::Ok, "OK")))
+        let todos = todos_service::fetch_todos();
+        Ok(Response::with((status::Ok, todos)))
     }
 }

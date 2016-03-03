@@ -3,6 +3,8 @@
 
 pub mod schema;
 pub mod models;
+pub mod services;
+pub mod persistence;
 
 #[macro_use]
 extern crate diesel;
